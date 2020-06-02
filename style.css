@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://db.onlinewebfonts.com/c/57d6fd87e5f4d90a1ae0f5746a84dd44?family=Arialic+Hollow');
 
 /* HEADER */
 
@@ -10,15 +11,34 @@
 
 .body {
 	background-color: #FDFFEF;
+	font-family: 'Rubik', sans-serif;
 }
 
-.wp-post-image {
-	max-width: 350px;
-	height: auto;
+.homepage-thumbnail {
+	width: 450px;
+	height: 330px;
+	object-fit: cover;
+}
+
+.homepage-thumbnail:hover {
+	box-shadow: -5px 5px #DD6E6E;
+}
+
+.entry-title {
+	z-index: 5;
+	margin-top: 220px;
+    margin-left: -25px;
+}
+
+.entry-title-left {
+	margin-left: -25px;
+}
+
+.entry-title-right {
+	margin-right: -25px;
 }
 
 .entry-title a:link, .entry-title a:visited {
-	font-family: 'Rubik', sans-serif;
 	font-size: 64px;
 	color: #000000;
 }
@@ -28,8 +48,20 @@
 	text-decoration-color: #DD6E6E;
 }
 
+.see-more {
+	color: #DD6E6E;
+	font-size: 24px;
+}
+
+.see-more:hover {
+	color: #506CCF;
+	text-decoration: none;
+}
+
+
 .home-container {
 	margin-left: 70px;
+	margin-right: 70px;
 }
 
 .post-container {
@@ -38,7 +70,38 @@
 
 .nav {
 	font-size: 24px;
-	width: 700px;
-	margin-left: 100px;
-	margin-top: -40px;
+	margin-top: -30px;
+	text-align: center;
+	position: relative;
+	left: -80px;
+}
+
+.header {
+	margin-bottom: 100px;
+}
+
+.section-title {
+	font-family: 'Arialic Hollow', sans-serif;
+	font-size: 144px;
+}
+
+.opacity-overlay {
+	max-width: 450px;
+	max-height: 330px;
+	background-color: #E8CBCB;
+	opacity: 70%;
+	position: relative;
+	z-index: 3;
+}
+
+.section-content {
+    margin-top: -70px;
+}
+
+.section-content-left {
+	margin-left: 65px;
+}
+
+.section-content-right {
+	margin-right: 65px;
 }

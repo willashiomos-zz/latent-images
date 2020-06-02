@@ -18,8 +18,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<div class="header w-100">
+<div class="header w-100">
 		<div class="row title justify-content-center">
 			<?php bloginfo( 'name' ); ?>
 		</div>
@@ -29,4 +28,4 @@
 			<a class="mx-3 col-auto">Editorials</a>
 			<a class="mx-3 col-auto">Features</a>
 		</div>
-	</div><!-- #masthead -->
+</div>

@@ -7,33 +7,109 @@
 
 	get_header();
 	?>
-		<div class="home-container">
+		<div class="home-container px-5">
+			<div class="section-title row">
+				Reviews
+			</div>
 
-			<?php
-			if ( have_posts() ) :
+			<?php $reviews = new WP_Query(array(
+				'cat' => get_cat_ID('Reviews'),
+				'orderby' => 'post_date'
+			));
 
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
+			$index = 0;?>
+			<div class="section-content section-content-left row">
+				<?php if( $reviews->have_posts() ) :
+					while( $reviews->have_posts() and $index < 2 ):
+						$reviews->the_post();?>
+						<div class="mb-5 row">
+							<div class="opacity-overlay">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail', 'title' => 'Feature image']);?>
+								</a>
+							</div>
+							<?php the_title( '<div class="entry-title entry-title-left"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></div>' );?>
+						</div>
+						<?php $index++;
+					endwhile;
+				endif;?>
 
+			<a href="/reviews" class="row justify-content-end text-decoration-none" style="width:450px">
+				<div class="col-auto see-more">See More</div>
+				<img class="col-auto align-self-center" width="72px" height="23px" src="wp-content/themes/latentimages/img/right_pink_arrow.png"></img>
+			</a>
+		</div>
+
+			<?php wp_reset_postdata();?>
+
+			<div class="text-right">
+				<div class="section-title">
+					Editorials
+				</div>
+
+				<?php
+					$editorials = new WP_Query(array(
+						'cat' => get_cat_ID('Editorials'),
+						'orderby' => 'post_date'
+					));
+
+					$index = 0;?>
+					<div class="section-content section-content-right row justify-content-end">
+						<?php if( $editorials->have_posts() ) :
+							while( $editorials->have_posts() and $index < 2 ):
+								$editorials->the_post();?>
+								<div class="mb-5 row">
+									<?php the_title( '<div class="entry-title entry-title-right"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></div>' );?>
+									<div class="opacity-overlay">
+										<a href="<?php the_permalink(); ?>">
+											<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail', 'title' => 'Feature image']);?>
+										</a>
+									</div>
+									
+								</div>
+								<?php $index++;
+							endwhile;
+						endif;?>
+					</div>
 					
+					<?php wp_reset_postdata();?>
+			</div>
 
-					/*
-					* Include the Post-Type-specific template for the content.
-					* If you want to override this in a child theme, then include a file
-					* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-					*/
-					get_template_part( 'template-parts/content-home', get_post_type() );
+			<div class="section-title">
+				Features
+			</div>
+		
+			
+			<?php
+				$features = new WP_Query(array(
+					'cat' => get_cat_ID('Features'),
+					'orderby' => 'post_date'
+				));
 
-				endwhile;
+				$index = 0;?>
 
+				<div class="section-content section-content-left row">
+					<?php if( $features->have_posts() ) :
+						while( $features->have_posts() and $index < 2 ):
+							$features->the_post();?>
+							<div class="mb-5 row">
+								<div class="opacity-overlay">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail', 'title' => 'Feature image']);?>
+									</a>
+								</div>
+								<?php the_title( '<div class="entry-title entry-title-right"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></div>' );?>
+							</div>
+							<?php $index++;
+						endwhile;
+					endif;?>
+					<a href="/features" class="row justify-content-end text-decoration-none" style="width:450px">
+						<div class="col-auto see-more">See More</div>
+						<img class="col-auto align-self-center" width="72px" height="23px" src="wp-content/themes/latentimages/img/right_pink_arrow.png"></img>
+					</a>
+				</div>
 
-			else :
-
-				get_template_part( 'template-parts/content', 'none' );
-
-			endif;
-			?>
+				<?php wp_reset_postdata();?>
 
 		</div><!-- #main -->
 
