@@ -1,17 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/57d6fd87e5f4d90a1ae0f5746a84dd44?family=Arialic+Hollow');
 
-/* HEADER */
+/* UNIVERSALS */
 
-.title {
-	font-family: 'Rubik', sans-serif;
-	font-weight: 500;
-	font-size: 140px;
+.text-blue {
+	color: #506CCF;
+}
+
+.text-pink {
+	color: #DD6E6E;
 }
 
 .body {
 	background-color: #FDFFEF;
 	font-family: 'Rubik', sans-serif;
+}
+
+
+/* INDEX */
+
+.title {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	font-size: 140px;
 }
 
 .homepage-thumbnail {
@@ -20,16 +31,12 @@
 	object-fit: cover;
 }
 
-.homepage-thumbnail:hover {
-	box-shadow: -5px 5px #DD6E6E;
-}
-
 .entry-title {
 	z-index: 5;
 	margin-top: 220px;
-    margin-left: -25px;
+	margin-left: -25px;
+	font-size: 64px;
 }
-
 .entry-title-left {
 	margin-left: -25px;
 }
@@ -39,25 +46,28 @@
 }
 
 .entry-title a:link, .entry-title a:visited {
-	font-size: 64px;
 	color: #000000;
 }
 
-.entry-title a:hover {
+.entry-title-left a:hover, .entry-title-left a:visited:hover {
 	text-decoration: underline;
 	text-decoration-color: #DD6E6E;
 }
 
+.opacity-overlay:hover + .entry-title-left a:link, .entry-title-left a:visited {
+	text-decoration: underline;
+	text-decoration-color: #DD6E6E;
+}
+
+.entry-title-right a:hover, .entry-title-right a:visited:hover {
+	text-decoration: underline;
+	text-decoration-color: #506CCF;
+}
+
+
 .see-more {
-	color: #DD6E6E;
 	font-size: 24px;
 }
-
-.see-more:hover {
-	color: #506CCF;
-	text-decoration: none;
-}
-
 
 .home-container {
 	margin-left: 70px;
@@ -104,4 +114,38 @@
 
 .section-content-right {
 	margin-right: 65px;
+}
+
+.pink-curved-arrow {
+	margin-top: 120px;
+    margin-left: -30px;
+}
+
+.blue-curved-arrow {
+	margin-top: 120px;
+    margin-right: -30px;
+}
+
+/* FOOTER */
+
+.footer {
+	background-color: #F1C9BF;
+	height: 350px;
+	margin-top: 100px;
+	font-size: 18px;
+}
+
+.vertical-line {
+	height: 70px;
+	width: 3px;
+	background-color: #000000;
+}
+
+.footer a:link, .footer a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	color: #506CCF;
 }
