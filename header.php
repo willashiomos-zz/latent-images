@@ -19,13 +19,16 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div class="header w-100">
-		<div class="row title justify-content-center">
+		<div class="row no-gutters title justify-content-center text-align-center">
 			<?php bloginfo( 'name' ); ?>
 		</div>
 		<div class="nav row justify-content-center">
-			<a class="mx-3 col-auto">The Latest</a>
-			<a class="mx-3 col-auto">Reviews</a>
-			<a class="mx-3 col-auto">Editorials</a>
-			<a class="mx-3 col-auto">Features</a>
+			<a href="/latest" class="mx-3 col-auto">The Latest</a>
+			<a href="/reviews" class="mx-3 col-auto">Reviews</a>
+			<a href="/editorials" class="mx-3 col-auto">Editorials</a>
+			<a href="/features" class="mx-3 col-auto">Features</a>
+		</div>
+		<div class="row pt-5 justify-content-center">
+			<img class="col-auto" width="150px" height="200px" src="wp-content/themes/latentimages/img/logo.png"></img>
 		</div>
 </div>

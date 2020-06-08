@@ -6,10 +6,10 @@
 
 ?>
 
-<div class="w-100 footer d-flex align-items-center">
+<div class="footer d-flex align-items-center">
 	<div class="container">
 		<div class="row justify-content-center mb-4">
-			<img class="col-auto" width="94px" height="74px" src="wp-content/themes/latentimages/img/logo.png"></img>
+			<img class="col-auto" width="150px" height="150px" src="wp-content/themes/latentimages/img/logo.png"></img>
 		</div>
 		<div class="row justify-content-center align-items-center">
 			<div class="col-auto">

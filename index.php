@@ -149,7 +149,7 @@
 							<?php $index++;
 						endwhile;
 					endif;?>
-					<a href="/features" class="row justify-content-end text-decoration-none" style="width:450px">
+					<a href="/features" class="row justify-content-end text-decoration-none" style="width:450px; margin-bottom: 150px">
 						<div class="col-auto text-pink see-more">See More</div>
 						<img class="col-auto align-self-center" width="72px" height="23px" src="wp-content/themes/latentimages/img/right_pink_arrow.png"></img>
 					</a>
