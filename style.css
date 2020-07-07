@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/57d6fd87e5f4d90a1ae0f5746a84dd44?family=Arialic+Hollow');
-@import url('https://db.onlinewebfonts.com/c/88f10bf18a36407ef36bf30bc25a3618?family=Suisse+Intl');
 
 /* UNIVERSALS */
 
@@ -12,10 +11,40 @@
 	color: #DD6E6E;
 }
 
+.text-black {
+	color: #000000;
+}
+
+.bg-pink {
+	background-color: #DD6E6E;
+}
+
+.text-roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+.page-container {
+	margin-left: 70px;
+	margin-right: 70px;
+	position: relative;
+	margin-bottom: 350px;
+	overflow-x: hidden;
+}
+
+.horizontal-line {
+	width: 100%;
+	height: 1px;
+	background-color: #000000;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
 .body, .html {
 	background-color: #FDFFEF;
 	font-family: 'Rubik', sans-serif;
-
+	line-height: normal;
 }
 
 
@@ -24,7 +53,7 @@
 .title {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
-	font-size: 140px;
+	font-size: 40px;
 }
 
 .homepage-thumbnail {
@@ -69,15 +98,6 @@
 
 .see-more {
 	font-size: 24px;
-}
-
-.home-container {
-	margin-left: 70px;
-	margin-right: 70px;
-	position: relative;
-	z-index: 1;
-	margin-bottom: 350px;
-	overflow-x: hidden;
 }
 
 .post-container {
@@ -150,22 +170,85 @@
 
 /* HEADER */
 
-.nav {
-	font-size: 24px;
-	margin-top: -30px;
-	text-align: center;
-	position: relative;
-	left: -80px;
-}
-
-.nav a:link, a:visited {
-	color: #000000;
-}
-
-.nav a:hover {
-	text-decoration-color: #DD6E6E;
-}
 
 .header {
 	overflow-x: hidden;
+	z-index: 21;
+	background-color: rgb(253, 255, 239, .7);
+}
+
+.nav-content {
+	position: fixed;
+	z-index: 20;
+	padding: 0;
+}
+
+.nav-item {
+	font-size: 96px;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	color: #000000;
+}
+
+.nav-link {
+	color: #000000;
+}
+
+.nav-link a:link, .nav-link a:visited {
+	color: #000000;
+}
+
+.nav-content a:hover {
+	color: #506CCF;
+}
+
+.navbar-nav {
+	padding-top: 150px;
+	line-height: initial;
+}
+
+.title a:link, .title a:visited, .title a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+/* SINGLE POST */
+
+.post-thumbnail {
+	width: 600px;
+	height: 440px;
+	object-fit: cover;
+}
+
+.read-more-thumbnail {
+	object-fit: cover;
+	width: 20vw;
+	height: 150px;
+}
+
+/* CATEGORY PAGE */
+
+.category-post-title {
+	font-size: 36px;
+	width: 400px;
+}
+
+.category-post-thumbnail {
+	width: 100%;
+	height: 190px;
+	object-fit: cover
+}
+
+.post-title {
+	font-size: 20px;
+	font-weight: 500;
+	color: #000000
+}
+
+.post-title a:link, .post-title a:visited {
+	color: #000000
+}
+
+.post-date {
+	font-size: 10px;
 }

@@ -9,25 +9,30 @@
 <div class="footer d-flex align-items-center">
 	<div class="container">
 		<div class="row justify-content-center mb-4">
-			<img class="col-auto" width="150px" height="150px" src="wp-content/themes/latentimages/img/logo.png"></img>
+			<img class="col-auto" width="150px" height="150px" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" ></img>
 		</div>
 		<div class="row justify-content-center align-items-center">
 			<div class="col-auto">
+			<?php
+				$reviews_link = get_category_link( get_cat_ID( 'Reviews' ) );
+				$editorials_link = get_category_link( get_cat_ID( 'Editorials' ) );
+				$features_link = get_category_link( get_cat_ID( 'Features' ) );
+			?>
 				<div class="row">
 					<div class="col-md-7">
-						<a href="/latest">The Latest</a>
+						<a href="latest.php">The Latest</a>
 					</div>
 					<div class="col-sm-5">
-						<a href="/editorials">Editorials</a>
+						<a href="<?php echo $editorals_link ?>">Editorials</a>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-7">
-						<a href="/reviews">Reviews</a>
+						<a href="<?php echo $reviews_link ?>">Reviews</a>
 					</div>
 					<div class="col-sm-5">
-						<a href="/features">Features</a>
+						<a href="<?php echo $features_link ?>">Features</a>
 					</div>
 				</div>
 			</div>
