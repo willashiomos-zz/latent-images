@@ -17,13 +17,15 @@
 				$reviews_link = get_category_link( get_cat_ID( 'Reviews' ) );
 				$editorials_link = get_category_link( get_cat_ID( 'Editorials' ) );
 				$features_link = get_category_link( get_cat_ID( 'Features' ) );
+				$latest_link = get_permalink( get_page_by_path( 'latest' ) );
+				$about_link = get_permalink( get_page_by_path( '/about/' ) );
 			?>
 				<div class="row">
 					<div class="col-md-7">
-						<a href="latest.php">The Latest</a>
+						<a href="<?php echo $latest_link ?>">The Latest</a>
 					</div>
 					<div class="col-sm-5">
-						<a href="<?php echo $editorals_link ?>">Editorials</a>
+						<a href="<?php echo $editorials_link ?>">Editorials</a>
 					</div>
 				</div>
 
@@ -44,12 +46,12 @@
 			<div class="col-auto">
 				<div class="row">
 					<div class="col-sm-12">
-						<a href="/about">About Us</a>
+						<a href="<?php echo $about_link ?>">About Us</a>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<a href="/contact">Contact</a>
+						<a href="mailto:filmsfromthemargin.ec@gmail.com">Contact</a>
 					</div>
 				</div>
 			</div>

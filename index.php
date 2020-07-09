@@ -1,15 +1,57 @@
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		function wrapped() {
-			$('.entry-title').each(function() {
-				if($(this).height() > 110) {
-					var lines = $(this).height()/96;
-					var marginTop = 220 - 40*lines;
-				}
-				$(this).css({'margin-top': marginTop});
+		var $window = $(window);
+		var $pane = $('#pane1');
+
+		function checkWidth() {
+			var windowsize = $window.width();
+			if (windowsize <= 768) {
+				$("html").find("*").find('.entry-title').removeClass('col');
+				$("html").find("*").find('.entry-title').addClass('row');
+				$("html").find("*").find('.editorials-title').removeClass('justify-content-end');
+
+				$('.entry-title-right').each(function() {
+					var $post_title = $(this).children();
+					var $mobile_title = $(this).next().next();
+					$post_title.detach().prependTo($mobile_title);
+					$mobile_title.removeClass('d-none');
+					$(this).addClass('d-none');
+				});
 				
-			});
+			}
+			else {
+				$("html").find("*").find('.entry-title').addClass('col');
+				$("html").find("*").find('.entry-title').removeClass('row');
+				$("html").find("*").find('.editorials-title').addClass('justify-content-end');
+
+				$('.entry-title-mobile').each(function() {
+					var $mobile_title = $(this).children();
+					var $post_title = $(this).prev().prev();
+					$mobile_title.detach().prependTo($post_title);
+					$post_title.removeClass('d-none');
+					$(this).addClass('d-none');
+					wrapped();
+				});
+			}
+		}
+		// Execute on load
+		checkWidth();
+		// Bind event listener
+		$(window).resize(checkWidth);
+			
+		function wrapped() {
+			var windowsize = $window.width();
+			if (windowsize > 768) {
+				$('.entry-title').each(function() {
+					if($(this).height() > 110) {
+						var lines = $(this).height()/96;
+						var marginTop = 220 - 40*lines;
+					}
+					$(this).css({'margin-top': marginTop});
+					
+				});
+			}
 
 		}
 		$(document).ready(function() {
@@ -50,11 +92,18 @@
 		));
 
 		$index = 0;?>
+
+		<?php
+			$reviews_link = get_category_link( get_cat_ID( 'Reviews' ) );
+			$editorials_link = get_category_link( get_cat_ID( 'Editorials' ) );
+			$features_link = get_category_link( get_cat_ID( 'Features' ) );
+		?>
+
 		<div class="section-content section-content-left row mb-5">
 			<?php if( $reviews->have_posts() ) :
 				while( $reviews->have_posts() and $index < 2 ):
 					$reviews->the_post();?>
-					<div class="mb-5 row no-gutters">
+					<div class="mb-5 row no-gutters single-post">
 						<div class="opacity-overlay col-auto">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail']);?>
@@ -71,7 +120,7 @@
 				endwhile;
 			endif;?>
 
-		<a href="reviews.php" class="row justify-content-end text-decoration-none" style="width:450px">
+		<a href="<?php echo $reviews_link ?>" class="row justify-content-end text-decoration-none" style="width:450px">
 			<div class="col-auto see-more text-pink">See More</div>
 			<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
 		</a>
@@ -80,7 +129,7 @@
 		<?php wp_reset_postdata();?>
 
 		<div class="text-right">
-			<div class="section-title row justify-content-end">
+			<div class="section-title row justify-content-end editorials-title">
 				<img class="col-auto align-self-center blue-curved-arrow" width="83px" height="100px" src="<?php echo get_template_directory_uri(); ?>/img/curved_blue_arrow.png"></img>
 				<div class="col-auto">Editorials</div>
 			</div>
@@ -96,24 +145,25 @@
 					<?php if( $editorials->have_posts() ) :
 						while( $editorials->have_posts() and $index < 2 ):
 							$editorials->the_post();?>
-							<div class="mb-5 row no-gutters">
+							<div class="mb-5 row no-gutters single-post">
 								<?php 
 								$title = get_the_title();
 								$title = mb_strimwidth($title, 0, 40, '...');
 								$link = get_permalink();
 								?>
-								<div class="entry-title entry-title-right col"><a href=<?php echo $link ?>><?php echo $title ?></a></div>	
+								<div class="entry-title entry-title-right text-right col"><a href=<?php echo $link ?>><?php echo $title ?></a></div>	
 								<div class="opacity-overlay col-auto">
 									<a href="<?php the_permalink(); ?>">
 										<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail']);?>
 									</a>
 								</div>
+								<div class="entry-title-mobile entry-title text-center row"></div>
 								
 							</div>
 							<?php $index++;
 						endwhile;
 					endif;?>
-					<a href="editorials.php" class="row justify-content-end text-decoration-none" style="width:450px">
+					<a href="<?php echo $editorials_link ?>" class="row justify-content-end text-decoration-none" style="width:450px">
 						<div class="col-auto see-more text-blue">See More</div>
 						<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_blue_arrow.png"></img>
 					</a>
@@ -140,7 +190,7 @@
 				<?php if( $features->have_posts() ) :
 					while( $features->have_posts() and $index < 2 ):
 						$features->the_post();?>
-						<div class="mb-5 row no-gutters">
+						<div class="mb-5 row no-gutters single-post">
 							<div class="opacity-overlay col-auto">
 								<a href="<?php the_permalink(); ?>">
 									<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail']);?>
@@ -156,7 +206,7 @@
 						<?php $index++;
 					endwhile;
 				endif;?>
-				<a href="features.php" class="row justify-content-end text-decoration-none" style="width:450px; margin-bottom: 150px">
+				<a href="<?php echo $features_link ?>" class="row justify-content-end text-decoration-none" style="width:450px; margin-bottom: 150px">
 					<div class="col-auto text-pink see-more">See More</div>
 					<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
 				</a>

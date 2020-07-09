@@ -40,12 +40,13 @@
 	$reviews_link = get_category_link( get_cat_ID( 'Reviews' ) );
 	$editorials_link = get_category_link( get_cat_ID( 'Editorials' ) );
 	$features_link = get_category_link( get_cat_ID( 'Features' ) );
+	$latest_link = get_permalink( get_page_by_path( 'latest' ) );
 ?>
 
 <div class="nav-content d-none w-100 h-100 bg-pink">
 	<ul class="navbar-nav ml-5">
 		<li class="nav-item">
-			<a class="nav-link" href="<?php echo $reviews_link ?>">Latest</a>
+			<a class="nav-link" href="<?php echo $latest_link ?>">The Latest</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="<?php echo $reviews_link ?>">Reviews</a>
@@ -60,7 +61,7 @@
 </div>
 
 <div class="container-fluid">
-	<div class="header row w-100 p-4 position-fixed d-flex">
+	<div class="header row w-100 p-4 position-fixed d-flex align-items-center">
 		<div class="title col m-3">
 			<a href="<?php echo get_home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
 		</div>
