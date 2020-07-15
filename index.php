@@ -75,7 +75,7 @@
 	get_header();
 ?>
 <div class="body" style="padding-top: 110px;">
-	<div class="row pt-5 justify-content-center">
+	<div class="row pt-5 w-100 justify-content-center">
 		<img class="col-auto" width="150px" height="200px" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></img>
 	</div>
 
@@ -120,7 +120,7 @@
 				endwhile;
 			endif;?>
 
-		<a href="<?php echo $reviews_link ?>" class="row justify-content-end text-decoration-none" style="width:450px">
+		<a href="<?php echo $reviews_link ?>" class="row justify-content-end text-decoration-none see-more-container">
 			<div class="col-auto see-more text-pink">See More</div>
 			<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
 		</a>
@@ -163,7 +163,7 @@
 							<?php $index++;
 						endwhile;
 					endif;?>
-					<a href="<?php echo $editorials_link ?>" class="row justify-content-end text-decoration-none" style="width:450px">
+					<a href="<?php echo $editorials_link ?>" class="row justify-content-end text-decoration-none see-more-container">
 						<div class="col-auto see-more text-blue">See More</div>
 						<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_blue_arrow.png"></img>
 					</a>
@@ -206,7 +206,7 @@
 						<?php $index++;
 					endwhile;
 				endif;?>
-				<a href="<?php echo $features_link ?>" class="row justify-content-end text-decoration-none" style="width:450px; margin-bottom: 150px">
+				<a href="<?php echo $features_link ?>" class="row justify-content-end text-decoration-none see-more-container" style="margin-bottom: 150px">
 					<div class="col-auto text-pink see-more">See More</div>
 					<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
 				</a>

@@ -23,7 +23,8 @@
 	get_header();
 ?>
 <div class="body" style="padding-top: 110px;">
-		<div class="page-container p-4" style="margin-top: 100px">
+	<div class="single-container container">
+		<div class="row">
 			<?php
 				while ( have_posts() ) :
 					the_post();
@@ -34,49 +35,49 @@
 					$categories = get_the_category();
 					$category_id = $categories[0]->cat_ID;
 					$category_name = get_cat_name($category_id);
+					$category_name = strtoupper($category_name);
 					
 					$date = get_the_date();
 					$date = strtoupper($date);
 				?>
-
-					<div class="row mb-5 align-items-center">
-						<div class="col-auto mr-3">
-							<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full post-thumbnail']);?>
-						</div>
-						<div class="col">
-							<div class="horizontal-line my-3"></div>
-							<div class="text-pink font-italic font-weight-light my-4" style="font-size: 36px;"><?php echo $category_name?></div>
-							<div class="text-roboto" style="font-size: 12px;"><?php echo $date?></div>
+			<div class="col-sm-12 col-md-12">
+				<div class="row">
+					<div class="col-sm-8">
+							<div class="text-roboto font-weight-light" style="font-size: 12px;">
+								<span class="text-pink font-weight-bold"><?php echo $category_name?></span>
+								<span class="mx-2">|</span>
+								<?php echo $date?>
+							</div>
 							<div class="" style="font-size:72px;"><?php echo the_title()?></div>
 							<div class="text-blue mb-4 font-weight-light" style="font-size: 18px;"><?php echo $full_name ?></div>
-							<div class="horizontal-line my-3"></div>
+
+						<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full post-thumbnail mb-5']);?>
+						
+				
+						<div class="text-roboto mb-5"> 
+							<?php echo the_content()?>
 						</div>
-					</div>
-					
-					<div class="row w-75"> 
-						<div class="col mb-5 text-roboto"><?php echo the_content()?></div>
+
 					</div>
 
-					<div class="row" style="width: 80%;">
-						<div class="horizontal-line mx-2 my-3"></div>
+					<div class="col-sm-12 col-lg-8 col-md-12">
+						<div class="horizontal-line my-3"></div>
 						<div class="ml-4" style="font-size: 36px;">Read More</div>
-						<div class="horizontal-line mx-2 my-3"></div>
+						<div class="horizontal-line my-3"></div>
 						<?php
 							$the_query = new WP_Query( array(
 								'posts_per_page' => 3,
 								'post__not_in' => [get_the_ID()]
-							 ));
+								));
 						?>
 						<div class="row m-0">
 							<?php if ( $the_query->have_posts() ) : ?>
 							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-								<div class="col mx-2">
-									<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-4">
 										<a href="<?php the_permalink(); ?>">
 											<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full read-more-thumbnail']);?>
 										</a>
-									</div>
-									<div class="row my-3 read-more-title" style="font-size: 24px;">
+									<div class="my-3 read-more-title" style="font-size: 24px;">
 										<a href="<?php the_permalink(); ?>" class="text-black">
 											<?php the_title(); ?>
 										</a>
@@ -88,11 +89,13 @@
 						</div>
 						<div class="horizontal-line my-3"></div>
 					</div>
-				<?php
-				endwhile;
-				?>
-
+				</div>
+			</div>
 		</div>
+		<?php
+		endwhile;
+		?>
+	</div>
 
 	<?php get_footer(); ?>
 </div>
