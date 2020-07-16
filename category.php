@@ -31,7 +31,7 @@
                         'cat' => get_query_var('cat'),
                         'orderby' => 'post_date'
                     ));
-                if ($posts -> have_posts()):
+                if ($posts -> have_posts()) {
                     while ($posts -> have_posts()):
                         $posts -> the_post();
                         $date = get_the_date('m \- d \- Y');
@@ -45,7 +45,9 @@
                     </div>
                     <?php
                     endwhile;
-                endif; ?>
+                } else { ?>
+                    <h1 class="mb-4">Posts Coming Soon</h1>
+                <?php } ?>
             </div>
         </div>
     </div>

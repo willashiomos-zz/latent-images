@@ -18,7 +18,7 @@
 				$editorials_link = get_category_link( get_cat_ID( 'Editorials' ) );
 				$features_link = get_category_link( get_cat_ID( 'Features' ) );
 				$latest_link = get_permalink( get_page_by_path( 'latest' ) );
-				$about_link = get_permalink( get_page_by_path( '/about/' ) );
+				$about_link = get_permalink( get_page_by_path( 'about' ) );	
 			?>
 				<div class="row">
 					<div class="col-sm-12 col-md-7 col-lg-7">

@@ -315,6 +315,10 @@
 	height: 150px;
 }
 
+.read-more-title a:hover {
+	color: #000000;
+}
+
 .single-container {
 	position: relative; 
 	overflow-x: hidden; 

@@ -100,7 +100,7 @@
 		?>
 
 		<div class="section-content section-content-left row mb-5">
-			<?php if( $reviews->have_posts() ) :
+			<?php if( $reviews->have_posts() ) {
 				while( $reviews->have_posts() and $index < 2 ):
 					$reviews->the_post();?>
 					<div class="mb-5 row no-gutters single-post">
@@ -118,12 +118,20 @@
 					</div>
 					<?php $index++;
 				endwhile;
-			endif;?>
+				?>
+				<a href="<?php echo $reviews_link ?>" class="row justify-content-end text-decoration-none see-more-container">
+					<div class="col-auto see-more text-pink">See More</div>
+					<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
+				</a>
+			<?php }
+			else {?>
+				<div class="mb-5 row no-gutters single-post">
+					<div class="opacity-overlay col-auto">
+						<img class="img-responsive responsive--full homepage-thumbnail" src="<?php echo get_template_directory_uri(); ?>/img/coming_soon.jpg"></img>
+					</div>		
+				</div>
+			<?php } ?>
 
-		<a href="<?php echo $reviews_link ?>" class="row justify-content-end text-decoration-none see-more-container">
-			<div class="col-auto see-more text-pink">See More</div>
-			<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
-		</a>
 	</div>
 
 		<?php wp_reset_postdata();?>
@@ -142,14 +150,14 @@
 
 				$index = 0;?>
 				<div class="section-content section-content-right row justify-content-end mb-5">
-					<?php if( $editorials->have_posts() ) :
+					<?php if( $editorials->have_posts() ) {
 						while( $editorials->have_posts() and $index < 2 ):
 							$editorials->the_post();?>
 							<div class="mb-5 row no-gutters single-post">
 								<?php 
-								$title = get_the_title();
-								$title = mb_strimwidth($title, 0, 40, '...');
-								$link = get_permalink();
+									$title = get_the_title();
+									$title = mb_strimwidth($title, 0, 40, '...');
+									$link = get_permalink();
 								?>
 								<div class="entry-title entry-title-right text-right col"><a href=<?php echo $link ?>><?php echo $title ?></a></div>	
 								<div class="opacity-overlay col-auto">
@@ -161,12 +169,20 @@
 								
 							</div>
 							<?php $index++;
-						endwhile;
-					endif;?>
-					<a href="<?php echo $editorials_link ?>" class="row justify-content-end text-decoration-none see-more-container">
-						<div class="col-auto see-more text-blue">See More</div>
-						<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_blue_arrow.png"></img>
-					</a>
+						endwhile;?>
+						<a href="<?php echo $editorials_link ?>" class="row justify-content-end text-decoration-none see-more-container">
+							<div class="col-auto see-more text-blue">See More</div>
+							<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_blue_arrow.png"></img>
+						</a>
+					<?php } 
+					else { ?>
+						<div class="mb-5 row no-gutters single-post">
+							<div class="opacity-overlay col-auto">
+								<img class="img-responsive responsive--full homepage-thumbnail" src="<?php echo get_template_directory_uri(); ?>/img/coming_soon.jpg"></img>
+							</div>		
+						</div>
+					<?php } ?>
+					
 				</div>
 				
 				<?php wp_reset_postdata();?>
@@ -187,7 +203,7 @@
 			$index = 0;?>
 
 			<div class="section-content section-content-left row mb-5">
-				<?php if( $features->have_posts() ) :
+				<?php if( $features->have_posts() ) {
 					while( $features->have_posts() and $index < 2 ):
 						$features->the_post();?>
 						<div class="mb-5 row no-gutters single-post">
@@ -204,12 +220,18 @@
 							<div class="entry-title entry-title-left col"><a href=<?php echo $link ?>><?php echo $title ?></a></div>		
 						</div>
 						<?php $index++;
-					endwhile;
-				endif;?>
-				<a href="<?php echo $features_link ?>" class="row justify-content-end text-decoration-none see-more-container" style="margin-bottom: 150px">
-					<div class="col-auto text-pink see-more">See More</div>
-					<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
-				</a>
+					endwhile;?>
+					<a href="<?php echo $features_link ?>" class="row justify-content-end text-decoration-none see-more-container" style="margin-bottom: 150px">
+						<div class="col-auto text-pink see-more">See More</div>
+						<img class="col-auto align-self-center" width="72px" height="23px" src="<?php echo get_template_directory_uri(); ?>/img/right_pink_arrow.png"></img>
+					</a>
+				<?php } else { ?>
+					<div class="mb-5 row no-gutters single-post">
+						<div class="opacity-overlay col-auto">
+							<img class="img-responsive responsive--full homepage-thumbnail" src="<?php echo get_template_directory_uri(); ?>/img/coming_soon.jpg"></img>
+						</div>		
+					</div>
+				<?php }?>
 			</div>
 
 			<?php wp_reset_postdata();?>
