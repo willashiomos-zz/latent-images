@@ -27,7 +27,6 @@
 					$("html").find("*").find('.nav-content').addClass('d-none');
 					$("html").find("*").find('.close-button').addClass('d-none');
 					$("html").find("*").find('.open-button').removeClass('d-none');
-					$("html").find("*").find('.header').css({'background-color': 'rgb(253, 255, 239, .7)'});
 				}
 			});
 		});
@@ -62,7 +61,7 @@
 
 <div class="container-fluid">
 	<div class="header row w-100 p-4 position-fixed d-flex align-items-center">
-		<div class="title col m-3">
+		<div class="website-title col m-3">
 			<a href="<?php echo get_home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
 		</div>
 		<div class="open-menu col-auto justify-content-end m-3">

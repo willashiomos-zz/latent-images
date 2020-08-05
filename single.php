@@ -43,7 +43,7 @@
 			<div class="col-sm-12 col-md-12">
 				<div class="row">
 					<div class="col-sm-8">
-							<div class="text-roboto font-weight-light" style="font-size: 12px;">
+							<div class="text-roboto-slab font-weight-light" style="font-size: 12px;">
 								<span class="text-pink font-weight-bold"><?php echo $category_name?></span>
 								<span class="mx-2">|</span>
 								<?php echo $date?>
@@ -54,7 +54,7 @@
 						<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full post-thumbnail mb-5']);?>
 						
 				
-						<div class="text-roboto mb-5"> 
+						<div class="text-roboto-slab mb-5"> 
 							<?php echo the_content()?>
 						</div>
 

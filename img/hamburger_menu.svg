@@ -5,13 +5,13 @@
 <g>
 	<g>
 		<g>
-			<rect y="46.06" width="144.339" height="40" fill="#000000"/>
+			<rect id="line1" y="46.06" width="144.339" height="40" fill="#000000"/>
 		</g>
 		<g>
-			<rect y="156.506" width="244.339" height="40" fill="#000000"/>
+			<rect id="line2" y="156.506" width="244.339" height="40" fill="#000000"/>
 		</g>
 		<g>
-			<rect y="268.748" width="344.339" height="40" fill="#000000"/>
+			<rect id="line3" y="268.748" width="344.339" height="40" fill="#000000"/>
 		</g>
 	</g>
 </g>

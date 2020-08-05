@@ -1,5 +1,9 @@
+/*Theme Name: Latent Images*/
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/57d6fd87e5f4d90a1ae0f5746a84dd44?family=Arialic+Hollow');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 
 /* UNIVERSALS */
 
@@ -19,8 +23,8 @@
 	background-color: #DD6E6E;
 }
 
-.text-roboto {
-	font-family: 'Roboto', sans-serif;
+.text-roboto-slab {
+	font-family: 'Roboto Slab', serif;
 }
 
 .page-container {
@@ -50,7 +54,7 @@
 
 /* INDEX */
 
-.title {
+.website-title {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
 	font-size: 40px;
@@ -145,6 +149,13 @@
 	width: 450px;
 }
 
+.carousel-caption {
+	font-size: 48px;
+	text-align: left;
+	color: #FDFFEF;
+	font-weight: 500;
+	left: 10px;
+}
 
 @media only screen and (max-width: 768px) {
 	.page-container {
@@ -194,6 +205,10 @@
 	}
 	.see-more-container {
 		width: 100%;
+		margin: auto;
+	}
+	.carousel-caption {
+		font-size: 36px;
 	}
 	
 }
@@ -284,7 +299,7 @@
 	line-height: initial;
 }
 
-.title a:link, .title a:visited, .title a:hover {
+.website-title a:link, .website-title a:visited, .website-title a:hover {
 	color: #000000;
 	text-decoration: none;
 }
@@ -293,11 +308,14 @@
 	.nav-item {
 		font-size: 48px;
 	}
-	.title {
+	.website-title {
 		font-size: 24px;
 	}
 	.container-fluid {
 		padding: 0;
+	}
+	.header {
+		margin: auto;
 	}
 }
 
@@ -365,4 +383,10 @@
 .post-category {
 	font-size: 12px;
 	font-weight: 500;
+}
+
+@media only screen and (max-width: 768px) {
+	.horizontal-line {
+		display: none;
+	}
 }
