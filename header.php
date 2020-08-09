@@ -22,6 +22,9 @@
 					$("html").find("*").find('.close-button').removeClass('d-none');
 					$("html").find("*").find('.open-button').addClass('d-none');
 					$("html").find("*").find('.header').css({'background-color': 'transparent'});
+					$('.open-button').css({'filter':'none'});
+					$('.logo').css({'filter':'none'});
+					$('.website-title').css({'color': '#000000'});
 				}
 				if (event.target.closest('.close-button')) {
 					$("html").find("*").find('.nav-content').addClass('d-none');
@@ -60,10 +63,13 @@
 </div>
 
 <div class="container-fluid">
-	<div class="header row w-100 p-4 position-fixed d-flex align-items-center">
-		<div class="website-title col m-3">
-			<a href="<?php echo get_home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
-		</div>
+	<div class="header row w-100 py-4 px-3 position-fixed d-flex align-items-center">
+		<a class="row col text-decoration-none" href="<?php echo get_home_url(); ?>">
+			<img class="logo" width="80px" height="80px" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" ></img>
+			<div class="d-flex align-self-center website-title">
+				<?php bloginfo( 'name' ); ?>
+			</div>
+		</a>
 		<div class="open-menu col-auto justify-content-end m-3">
 			<img src="<?php echo get_template_directory_uri(); ?>/img/hamburger_menu.svg" class="cursor-pointer open-button" height="40px"></img>
 			<img src="<?php echo get_template_directory_uri(); ?>/img/x_icon.svg" class="cursor-pointer close-button d-none" height="40px"></img>

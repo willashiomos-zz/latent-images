@@ -38,16 +38,14 @@
 			var isElementInView = Utils.isElementInView($('.carousel'), false);
 			if (isElementInView) {
 				$('.header').css({'background-color': 'transparent'});
-				$('.website-title a:link').css({'color': '#FDFFEF'});
-				$('.website-title a:visited').css({'color': '#FDFFEF'});
-				$('.website-title a:hover').css({'color': '#FDFFEF'});
+				$('.website-title').css({'color': '#FDFFEF'});
 				$('.open-button').css({'filter':'invert(1)'});
+				$('.logo').css({'filter':'invert(1)'});
 			} else {
-				$('.header').css({'background-color': 'rgb(253, 255, 239, .7)'});
-				$('.website-title a:link').css({'color': '#000000'});
-				$('.website-title a:visited').css({'color': '#000000'});
-				$('.website-title a:hover').css({'color': '#000000'});
+				$('.header').css({'background-color': 'rgba(253, 255, 239, .7)'});
+				$('.website-title').css({'color': '#000000'});
 				$('.open-button').css({'filter':'none'});
+				$('.logo').css({'filter':'none'});
 			}
 		}
 
