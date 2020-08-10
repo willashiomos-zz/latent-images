@@ -52,8 +52,7 @@
 		function checkWidth() {
 			var windowsize = $window.width();
 			if (windowsize <= 768) {
-				$("html").find("*").find('.entry-title').removeClass('col');
-				$("html").find("*").find('.entry-title').addClass('row');
+				$("html").find("*").find('.entry-title').addClass('text-center');
 				$("html").find("*").find('.editorials-title').removeClass('justify-content-end');
 
 				$('.entry-title-right').each(function() {
@@ -66,9 +65,8 @@
 				
 			}
 			else {
-				$("html").find("*").find('.entry-title').addClass('col');
-				$("html").find("*").find('.entry-title').removeClass('row');
 				$("html").find("*").find('.editorials-title').addClass('justify-content-end');
+				$("html").find("*").find('.entry-title').removeClass('text-center');
 
 				$('.entry-title-mobile').each(function() {
 					var $mobile_title = $(this).children();
@@ -108,9 +106,12 @@
 			checkHeaderStyling();
 			$('.opacity-overlay').hover(function(){
 				$(this).prev('.entry-title-right').css({'text-decoration': 'underline'});
+				$(this).next('.entry-title-left').css({'text-decoration': 'underline'});
 				$('.entry-title-right a:link').css({'text-decoration-color': '#506CCF'});
+				$('.entry-title-left a:link').css({'text-decoration-color': '#DD6E6E'});
 			}, function() {
 				$(this).prev('.entry-title-right').css('text-decoration', 'none');
+				$(this).next('.entry-title-left').css({'text-decoration': 'none'});
 			});
 
 			document.addEventListener('click', function (event) {
@@ -139,11 +140,12 @@
 	<div id="carousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 		<?php $posts = new WP_Query(array(
-        	'orderby' => 'post_date'
+			'orderby' => 'post_date',
+			'posts_per_page' => 5
         ));
 		$index = 0;
 		if ($posts -> have_posts()) {
-			while ($posts -> have_posts() and $index < 5):
+			while ($posts -> have_posts()):
 				$posts->the_post();?>
 				<div class="carousel-item<?php if($index == 0) { echo ' active'; }?>">
 					<a href="<?php the_permalink(); ?>">
@@ -159,7 +161,7 @@
 		</div>
 	</div>
 
-	<div class="page-container px-5" style="">
+	<div class="page-container px-5">
 		<div class="section-title row">
 			<div class="col-auto">Reviews</div>
 			<img class="col-auto align-self-center pink-curved-arrow" width="83px" height="100px" src="<?php echo get_template_directory_uri(); ?>/img/curved_pink_arrow.png"></img>
@@ -168,6 +170,7 @@
 
 		<?php $reviews = new WP_Query(array(
 			'cat' => get_cat_ID('Reviews'),
+			'posts_per_page' => 2,
 			'orderby' => 'post_date'
 		));
 
@@ -181,7 +184,7 @@
 
 		<div class="section-content section-content-left row mb-5">
 			<?php if( $reviews->have_posts() ) {
-				while( $reviews->have_posts() and $index < 2 ):
+				while( $reviews->have_posts()):
 					$reviews->the_post();?>
 					<div class="mb-5 row w-100 no-gutters single-post">
 						<div class="opacity-overlay col-auto">
@@ -225,21 +228,26 @@
 			<?php
 				$editorials = new WP_Query(array(
 					'cat' => get_cat_ID('Editorials'),
+					'posts_per_page' => 3,
 					'orderby' => 'post_date'
 				));
 
 				$index = 0;?>
 				<div class="section-content section-content-right row justify-content-end mb-5">
 					<?php if( $editorials->have_posts() ) {
-						while( $editorials->have_posts() and $index < 2 ):
+						while( $editorials->have_posts()):
 							$editorials->the_post();?>
 							<div class="mb-5 row w-100 no-gutters single-post">
 								<?php 
 									$title = get_the_title();
-									$title = mb_strimwidth($title, 0, 40, '...');
+									$title = mb_strimwidth($title, 0, 60, '...');
 									$link = get_permalink();
 								?>
-								<div class="entry-title entry-title-right text-right col"><a href=<?php echo $link ?>><?php echo $title ?></a></div>	
+								<div class="entry-title entry-title-right text-right col">
+									<a href=<?php echo $link ?>>
+										<?php echo $title ?>
+									</a>
+								</div>	
 								<div class="opacity-overlay col-auto">
 									<a href="<?php the_permalink(); ?>">
 										<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full homepage-thumbnail']);?>
@@ -277,6 +285,7 @@
 		<?php
 			$features = new WP_Query(array(
 				'cat' => get_cat_ID('Features'),
+				'posts_per_page' => 2,
 				'orderby' => 'post_date'
 			));
 
@@ -284,7 +293,7 @@
 
 			<div class="section-content section-content-left row mb-5">
 				<?php if( $features->have_posts() ) {
-					while( $features->have_posts() and $index < 2 ):
+					while( $features->have_posts()):
 						$features->the_post();?>
 						<div class="mb-5 row w-100 no-gutters single-post">
 							<div class="opacity-overlay col-auto">
@@ -294,7 +303,7 @@
 							</div>
 							<?php 
 								$title = get_the_title();
-								$title = mb_strimwidth($title, 0, 40, '...');
+								$title = mb_strimwidth($title, 0, 60, '...');
 								$link = get_permalink();
 							?>
 							<div class="entry-title entry-title-left col"><a href=<?php echo $link ?>><?php echo $title ?></a></div>		

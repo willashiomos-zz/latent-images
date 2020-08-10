@@ -3,9 +3,10 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.read-more-thumbnail').hover(function(){
-				$(this).parent().parent().next('.read-more-title').css({'text-decoration': 'underline'});
+				$(this).find('.read-more-title a:link').css({'text-decoration': 'underline'});
+                $(this).find('.read-more-title a:link').css({'text-decoration-color': '#506CCF'});
 			}, function() {
-				$(this).parent().parent().next('.read-more-title').css('text-decoration', 'none');
+				$(this).find('.read-more-title a:link').css({'text-decoration': 'none'});
 			});
 		});
 	</script>
@@ -42,14 +43,14 @@
 				?>
 			<div class="col-sm-12 col-md-12">
 				<div class="row">
-					<div class="col-sm-8">
+					<div class="col-sm-8 p-4">
 							<div class="text-roboto-slab font-weight-light" style="font-size: 12px;">
 								<span class="text-pink font-weight-bold"><?php echo $category_name?></span>
 								<span class="mx-2">|</span>
 								<?php echo $date?>
 							</div>
-							<div class="" style="font-size:72px;"><?php echo the_title()?></div>
-							<div class="text-blue mb-4 font-weight-light" style="font-size: 18px;"><?php echo $full_name ?></div>
+							<div class="single-title py-1"><?php echo the_title()?></div>
+							<div class="text-blue mb-4 font-weight-light" style="font-size: 12px;"><?php echo $full_name ?></div>
 
 						<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full post-thumbnail mb-5']);?>
 						
@@ -62,7 +63,7 @@
 
 					<div class="col-sm-12 col-lg-8 col-md-12">
 						<div class="horizontal-line my-3"></div>
-						<div class="ml-4" style="font-size: 36px;">Read More</div>
+						<div class="ml-4 mb-2 read-more">Read More</div>
 						<div class="horizontal-line my-3"></div>
 						<?php
 							$the_query = new WP_Query( array(
@@ -74,14 +75,12 @@
 							<?php if ( $the_query->have_posts() ) : ?>
 							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 								<div class="col-lg-4 col-md-4 col-sm-4">
-										<a href="<?php the_permalink(); ?>">
-											<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full read-more-thumbnail']);?>
-										</a>
-									<div class="my-3 read-more-title" style="font-size: 24px;">
-										<a href="<?php the_permalink(); ?>" class="text-black">
+									<a href="<?php the_permalink(); ?>">
+										<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full read-more-thumbnail']);?>
+										<div class="my-3 read-more-title text-black">
 											<?php the_title(); ?>
-										</a>
-									</div>
+										</div>
+									</a>
 								</div>
 							<?php endwhile; ?>
 							<?php endif; ?>

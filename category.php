@@ -23,7 +23,7 @@
 <div class="body" style="padding-top: 110px;">
     <div class="page-container mt-5">
         <div class="row no-gutters section-title"><?php single_cat_title("")?></div>
-        <div class="row horizontal-line mb-5"></div>
+        <div class="row horizontal-line line-hide mb-5"></div>
 
         <div class="col-md-12">
             <div class="row">
