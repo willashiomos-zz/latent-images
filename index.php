@@ -145,7 +145,7 @@
         ));
 		$index = 0;
 		if ($posts -> have_posts()) {
-			while ($posts -> have_posts()):
+			while ($posts -> have_posts() && $index < 5):
 				$posts->the_post();?>
 				<div class="carousel-item<?php if($index == 0) { echo ' active'; }?>">
 					<a href="<?php the_permalink(); ?>">
@@ -184,7 +184,7 @@
 
 		<div class="section-content section-content-left row mb-5">
 			<?php if( $reviews->have_posts() ) {
-				while( $reviews->have_posts()):
+				while( $reviews->have_posts() && $index < 2):
 					$reviews->the_post();?>
 					<div class="mb-5 row w-100 no-gutters single-post">
 						<div class="opacity-overlay col-auto">
@@ -235,7 +235,7 @@
 				$index = 0;?>
 				<div class="section-content section-content-right row justify-content-end mb-5">
 					<?php if( $editorials->have_posts() ) {
-						while( $editorials->have_posts()):
+						while( $editorials->have_posts() && $index < 2):
 							$editorials->the_post();?>
 							<div class="mb-5 row w-100 no-gutters single-post">
 								<?php 
@@ -293,7 +293,7 @@
 
 			<div class="section-content section-content-left row mb-5">
 				<?php if( $features->have_posts() ) {
-					while( $features->have_posts()):
+					while( $features->have_posts() && $index < 2):
 						$features->the_post();?>
 						<div class="mb-5 row w-100 no-gutters single-post">
 							<div class="opacity-overlay col-auto">

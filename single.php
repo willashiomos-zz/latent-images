@@ -68,12 +68,14 @@
 						<?php
 							$the_query = new WP_Query( array(
 								'posts_per_page' => 3,
+								'orderby' => 'post_date',
 								'post__not_in' => [get_the_ID()]
 								));
 						?>
 						<div class="row m-0">
-							<?php if ( $the_query->have_posts() ) : ?>
-							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<?php $index = 0;
+							if ( $the_query->have_posts() ) : ?>
+							<?php while ( $the_query->have_posts() && $index < 3) : $the_query->the_post(); ?>
 								<div class="col-lg-4 col-md-4 col-sm-4">
 									<a href="<?php the_permalink(); ?>">
 										<?php echo the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full read-more-thumbnail']);?>
@@ -82,7 +84,7 @@
 										</div>
 									</a>
 								</div>
-							<?php endwhile; ?>
+							<?php $index++; endwhile; ?>
 							<?php endif; ?>
 							<?php wp_reset_postdata(); ?>
 						</div>
