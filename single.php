@@ -60,7 +60,8 @@
 						</div>
 
 					</div>
-
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
 					<div class="col-sm-12 col-lg-8 col-md-12">
 						<div class="horizontal-line my-3"></div>
 						<div class="ml-4 mb-2 read-more">Read More</div>
@@ -69,6 +70,7 @@
 							$the_query = new WP_Query( array(
 								'posts_per_page' => 3,
 								'orderby' => 'post_date',
+								'order' => 'DESC',
 								'post__not_in' => [get_the_ID()]
 								));
 						?>
@@ -93,9 +95,6 @@
 				</div>
 			</div>
 		</div>
-		<?php
-		endwhile;
-		?>
 	</div>
 
 	<?php get_footer(); ?>

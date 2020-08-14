@@ -28,7 +28,8 @@
         <div class="col-md-12">
             <div class="row">
                 <?php $posts = new WP_Query(array(
-                        'orderby' => 'post_date'
+                        'orderby' => 'post_date',
+                        'order' => 'DESC'
                     ));
                 if ($posts -> have_posts()) {
                     while ($posts -> have_posts()):

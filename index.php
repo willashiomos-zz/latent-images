@@ -141,6 +141,7 @@
 		<div class="carousel-inner">
 		<?php $posts = new WP_Query(array(
 			'orderby' => 'post_date',
+			'order' => 'DESC',
 			'posts_per_page' => 5
         ));
 		$index = 0;
@@ -171,7 +172,8 @@
 		<?php $reviews = new WP_Query(array(
 			'cat' => get_cat_ID('Reviews'),
 			'posts_per_page' => 2,
-			'orderby' => 'post_date'
+			'orderby' => 'post_date',
+			'order' => 'DESC'
 		));
 
 		$index = 0;?>
@@ -228,8 +230,9 @@
 			<?php
 				$editorials = new WP_Query(array(
 					'cat' => get_cat_ID('Editorials'),
-					'posts_per_page' => 3,
-					'orderby' => 'post_date'
+					'posts_per_page' => 2,
+					'orderby' => 'post_date',
+					'order' => 'DESC'
 				));
 
 				$index = 0;?>
@@ -286,7 +289,8 @@
 			$features = new WP_Query(array(
 				'cat' => get_cat_ID('Features'),
 				'posts_per_page' => 2,
-				'orderby' => 'post_date'
+				'orderby' => 'post_date',
+				'order' => 'DESC'
 			));
 
 			$index = 0;?>
