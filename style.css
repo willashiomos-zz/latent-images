@@ -417,3 +417,29 @@
 		display: none;
 	}
 }
+
+/* ABOUT PAGE */
+
+.staff-title {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.our-staff {
+	font-size: 72px;
+	font-family: 'Arialic Hollow', sans-serif;
+}
+
+.contact-link {
+	text-decoration: underline;
+}
+
+.contact-link:hover, .contact-link:visited:hover {
+	color: #DD6E6E;
+}
+
+@media only screen and (max-width: 768px) {
+	.about-content {
+		margin: 0;
+	}
+}

@@ -152,7 +152,12 @@
 					<a href="<?php the_permalink(); ?>">
 						<img class="d-block h-100 w-100" style="object-fit: cover;" src="<?php the_post_thumbnail_url('full'); ?>">
 						<div class="carousel-caption p-4 m-3">
-							<?php the_title() ?>
+							<?php 
+								$category = get_the_category();
+								$category_id = $category[0]->cat_ID;
+								$category_name = get_cat_name($category_id);
+								if($category_name == 'Reviews') { echo 'Review: '; } the_title() 
+							?>
 						</div>
 					</a>
 				</div>
