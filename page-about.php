@@ -82,7 +82,7 @@
                     <div class="row text-pink staff-title">Micah Levine - Treasurer & Staff Writer</div>
                     <div class="row text-roboto-slab">
                         <p>
-                            Micah Levine knew that film would be his passion alt the age of eight, when he watched 
+                            Micah Levine knew that film would be his passion at the age of eight, when he watched 
                             James Cameron’s <em>The Abyss</em> for reasons he currently does not know. A sophomore at Emerson, 
                             he is the treasurer of Latent Images, as well as a featured staff writer. Micah also helps 
                             with operations at Films from the Margin, and produces/co-hosts an upcoming podcast 
